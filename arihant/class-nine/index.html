@@ -138,7 +138,7 @@
 
       const heading = document.createElement('div');
       heading.className = 'history-heading';
-      heading.textContent = t.label;
+      heading.innerHTML = '<span style="opacity:.7;font-size:12px;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;">Test</span> ' + t.label;
       block.appendChild(heading);
 
       const table = document.createElement('div');
@@ -147,10 +147,10 @@
       // Header row
       table.innerHTML =
         '<div class="history-row history-header">' +
-          '<span>#</span>' +
-          '<span>Date</span>' +
-          '<span>Score</span>' +
-          '<span>%</span>' +
+          '<span class="h-num">Attempt</span>' +
+          '<span class="h-date">Date</span>' +
+          '<span class="h-score">Score</span>' +
+          '<span class="h-pct">Percent</span>' +
         '</div>';
 
       history.forEach(function (h, i) {
@@ -158,8 +158,9 @@
         const tier = h.pct >= 90 ? 'green' : h.pct >= 50 ? 'amber' : 'red';
         const row = document.createElement('div');
         row.className = 'history-row' + (isBest ? ' history-best' : '');
+        var label = i === 0 ? 'Latest' : 'Attempt ' + (i + 1);
         row.innerHTML =
-          '<span class="h-num">' + (i === 0 ? 'Latest' : '#' + (i + 1)) + '</span>' +
+          '<span class="h-num">' + label + '</span>' +
           '<span class="h-date">' + h.date + '</span>' +
           '<span class="h-score score-' + tier + '">' + h.score + '/' + h.total + '</span>' +
           '<span class="h-pct score-' + tier + '">' + h.pct + '%' + (isBest ? ' 🏆' : '') + '</span>';
