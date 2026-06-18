@@ -182,15 +182,15 @@
   }
 
   function saveBestScore(score, total, pct) {
-    const key = 'best_' + location.pathname.split('/').pop().replace('.html', '');
-    const existing = JSON.parse(localStorage.getItem(key) || 'null');
-    if (!existing || pct > existing.pct) {
-      localStorage.setItem(key, JSON.stringify({
-        score, total, pct,
-        title: window.TEST.title,
-        date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
-      }));
-    }
+    const key = 'history_' + location.pathname.split('/').pop().replace('.html', '');
+    const history = JSON.parse(localStorage.getItem(key) || '[]');
+    history.unshift({
+      score, total, pct,
+      date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })
+    });
+    // Keep last 20 attempts
+    if (history.length > 20) history.length = 20;
+    localStorage.setItem(key, JSON.stringify(history));
   }
 
   document.addEventListener('DOMContentLoaded', init);

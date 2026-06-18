@@ -433,60 +433,64 @@ a { color: var(--ink); text-decoration: none; }
 
 .print-link { font-family: var(--mono); font-size: 12px; }
 
-/* ---- Scorecard (homepage) ---- */
-.scorecard-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.scorecard-entry {
-  background: var(--cream-card);
-  border: 1px solid var(--paper-rule);
-  border-radius: 6px;
-  padding: 0.85rem 1.2rem;
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 16px;
-}
-
-.sc-label {
-  font-family: var(--serif);
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.sc-score {
-  font-family: var(--mono);
-  font-size: 17px;
-  font-weight: 700;
-}
+/* ---- Score history (homepage) ---- */
 .score-green { color: var(--green); }
 .score-amber { color: var(--amber); }
 .score-red   { color: var(--red); }
 
-.sc-pct {
-  font-family: var(--mono);
+.history-block {
+  background: var(--cream-card);
+  border: 1px solid var(--paper-rule);
+  border-left: 4px solid var(--ink);
+  border-radius: 6px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.history-heading {
+  font-family: var(--serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 0.75rem 1.2rem;
+  border-bottom: 1px solid var(--paper-rule);
+  background: var(--paper);
+}
+
+.history-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem 1.2rem;
   font-size: 13px;
-  color: var(--ink-soft);
-  min-width: 3.5ch;
-  text-align: right;
+  border-bottom: 1px solid var(--paper-rule);
 }
+.history-row:last-child { border-bottom: none; }
 
-.sc-date {
+.history-header {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--ink-soft);
-  white-space: nowrap;
+  background: var(--paper);
+  border-bottom: 1px solid var(--paper-rule);
 }
 
-@media (max-width: 520px) {
-  .scorecard-entry {
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-  }
-  .sc-date { grid-column: 1; font-size: 10px; }
-  .sc-pct  { display: none; }
+.history-best {
+  background: #f6faf7;
+}
+
+.h-num  { font-family: var(--mono); font-size: 11px; color: var(--ink-soft); }
+.h-date { color: var(--ink-soft); }
+.h-score, .h-pct { font-family: var(--mono); font-weight: 600; text-align: right; white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .history-row { grid-template-columns: 3.5rem 1fr auto auto; gap: 8px; padding: 0.5rem 0.9rem; }
 }

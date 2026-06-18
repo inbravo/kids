@@ -96,14 +96,14 @@
     </div>
   </section>
 
-  <!-- ================= SCORECARD ================= -->
+  <!-- ================= SCORE HISTORY ================= -->
   <section class="chapter-section" id="scorecardSection">
     <div class="chapter-head">
       <span class="chapter-tab">🏅</span>
-      <h2>Best Scores</h2>
+      <h2>Score History</h2>
     </div>
-    <p class="chapter-desc">Personal best on each completed test.</p>
-    <div class="scorecard-grid" id="scorecardGrid"></div>
+    <p class="chapter-desc">Every attempt is recorded. Best score on each test is highlighted.</p>
+    <div id="scorecardGrid"></div>
   </section>
 
   <footer class="site-footer">
@@ -115,35 +115,65 @@
 <script>
   (function () {
     const TESTS = [
-      { key: 'polynomials-set1', label: 'Polynomials · Set 1' },
-      { key: 'polynomials-set2', label: 'Polynomials · Set 2' },
-      { key: 'polynomials-set3', label: 'Polynomials · Set 3' },
+      { key: 'polynomials-set1',        label: 'Polynomials · Set 1' },
+      { key: 'polynomials-set2',        label: 'Polynomials · Set 2' },
+      { key: 'polynomials-set3',        label: 'Polynomials · Set 3' },
       { key: 'algebraic-identities-set1', label: 'Algebraic Identities · Set 4' },
       { key: 'algebraic-identities-set2', label: 'Algebraic Identities · Set 5' },
       { key: 'algebraic-identities-set3', label: 'Algebraic Identities · Set 6' }
     ];
+
     const grid = document.getElementById('scorecardGrid');
-    const section = document.getElementById('scorecardSection');
     let any = false;
+
     TESTS.forEach(function (t) {
-      const data = JSON.parse(localStorage.getItem('best_' + t.key) || 'null');
-      if (!data) return;
+      const history = JSON.parse(localStorage.getItem('history_' + t.key) || '[]');
+      if (!history.length) return;
       any = true;
-      const pct = data.pct;
-      const tier = pct >= 90 ? 'green' : pct >= 50 ? 'amber' : 'red';
-      const card = document.createElement('div');
-      card.className = 'scorecard-entry';
-      card.innerHTML =
-        '<span class="sc-label">' + t.label + '</span>' +
-        '<span class="sc-score score-' + tier + '">' + data.score + ' / ' + data.total + '</span>' +
-        '<span class="sc-pct">' + pct + '%</span>' +
-        '<span class="sc-date">' + data.date + '</span>';
-      grid.appendChild(card);
+
+      const bestPct = Math.max.apply(null, history.map(function (h) { return h.pct; }));
+
+      const block = document.createElement('div');
+      block.className = 'history-block';
+
+      const heading = document.createElement('div');
+      heading.className = 'history-heading';
+      heading.textContent = t.label;
+      block.appendChild(heading);
+
+      const table = document.createElement('div');
+      table.className = 'history-table';
+
+      // Header row
+      table.innerHTML =
+        '<div class="history-row history-header">' +
+          '<span>#</span>' +
+          '<span>Date</span>' +
+          '<span>Score</span>' +
+          '<span>%</span>' +
+        '</div>';
+
+      history.forEach(function (h, i) {
+        const isBest = h.pct === bestPct;
+        const tier = h.pct >= 90 ? 'green' : h.pct >= 50 ? 'amber' : 'red';
+        const row = document.createElement('div');
+        row.className = 'history-row' + (isBest ? ' history-best' : '');
+        row.innerHTML =
+          '<span class="h-num">' + (i === 0 ? 'Latest' : '#' + (i + 1)) + '</span>' +
+          '<span class="h-date">' + h.date + '</span>' +
+          '<span class="h-score score-' + tier + '">' + h.score + '/' + h.total + '</span>' +
+          '<span class="h-pct score-' + tier + '">' + h.pct + '%' + (isBest ? ' 🏆' : '') + '</span>';
+        table.appendChild(row);
+      });
+
+      block.appendChild(table);
+      grid.appendChild(block);
     });
+
     if (!any) {
       const empty = document.createElement('div');
       empty.className = 'coming-soon';
-      empty.textContent = 'No tests completed yet — scores will appear here after your first submission.';
+      empty.textContent = 'No tests completed yet — history will appear here after your first submission.';
       grid.appendChild(empty);
     }
   })();
