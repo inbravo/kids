@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Factorisation of Polynomials — Baklee's Maths Practice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<div class="margin-rule"></div>
+<div class="wrap">
+
+  <a class="back-link" href="../index.html">&larr; All tests</a>
+
+  <header class="site-header" style="padding-top:0;">
+    <p class="eyebrow">Polynomials (Ch. 2) &middot; Set 1</p>
+    <h1>Factorisation of Polynomials</h1>
+    <div class="test-meta-bar">
+      <span>📝 20 Questions</span>
+      <span>🎯 38 Marks</span>
+      <span>⏱ <span id="timerDisplay" class="timer-display">45:00</span></span>
+    </div>
+  </header>
+
+  <main id="questions">
+    <div class="section-divider easy">
+      <span class="label">Easy</span>
+      <span class="rule"></span>
+      <span class="marks">1 mark each</span>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q1</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">Which of the following is a factor of the polynomial x<sup>2</sup> − 5x + 6?</div>
+      <div class="options">
+        <div class="opt" data-q="1" data-opt="A">x − 1</div>
+        <div class="opt" data-q="1" data-opt="B">x − 2</div>
+        <div class="opt" data-q="1" data-opt="C">x + 3</div>
+        <div class="opt" data-q="1" data-opt="D">x + 6</div>
+      </div>
+      <div class="hint-box" id="hint-1"><strong>Hint:</strong> p(2) = 4 − 10 + 6 = 0, so (x − 2) is a factor.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q2</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">The zero of the polynomial p(x) = 2x + 5 is:</div>
+      <div class="options">
+        <div class="opt" data-q="2" data-opt="A">x = 5/2</div>
+        <div class="opt" data-q="2" data-opt="B">x = −5/2</div>
+        <div class="opt" data-q="2" data-opt="C">x = 2/5</div>
+        <div class="opt" data-q="2" data-opt="D">x = −2/5</div>
+      </div>
+      <div class="hint-box" id="hint-2"><strong>Hint:</strong> 2x + 5 = 0 ⟹ x = −5/2.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q3</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">Factorise: x<sup>2</sup> − 9</div>
+      <div class="options">
+        <div class="opt" data-q="3" data-opt="A">(x − 3)(x − 3)</div>
+        <div class="opt" data-q="3" data-opt="B">(x + 3)(x + 3)</div>
+        <div class="opt" data-q="3" data-opt="C">(x − 3)(x + 3)</div>
+        <div class="opt" data-q="3" data-opt="D">(x − 9)(x + 1)</div>
+      </div>
+      <div class="hint-box" id="hint-3"><strong>Hint:</strong> Difference of squares: a² − b² = (a−b)(a+b), here a=x, b=3.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q4</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">By the Factor Theorem, (x − a) is a factor of p(x) if and only if:</div>
+      <div class="options">
+        <div class="opt" data-q="4" data-opt="A">p(0) = 0</div>
+        <div class="opt" data-q="4" data-opt="B">p(a) = 0</div>
+        <div class="opt" data-q="4" data-opt="C">p(1) = a</div>
+        <div class="opt" data-q="4" data-opt="D">p(−a) = 0</div>
+      </div>
+      <div class="hint-box" id="hint-4"><strong>Hint:</strong> Factor Theorem: (x − a) is a factor iff p(a) = 0.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q5</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">Is (x + 1) a factor of x<sup>3</sup> + x<sup>2</sup> + x + 1?</div>
+      <div class="options">
+        <div class="opt" data-q="5" data-opt="A">Yes</div>
+        <div class="opt" data-q="5" data-opt="B">No</div>
+        <div class="opt" data-q="5" data-opt="C">Cannot be determined</div>
+        <div class="opt" data-q="5" data-opt="D">Only if x > 0</div>
+      </div>
+      <div class="hint-box" id="hint-5"><strong>Hint:</strong> Check p(−1): (−1)³+(−1)²+(−1)+1 = −1+1−1+1 = 0.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q6</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">Which identity is used to expand (x + 3)<sup>2</sup>?</div>
+      <div class="options">
+        <div class="opt" data-q="6" data-opt="A">(a+b)<sup>2</sup> = a<sup>2</sup> − 2ab + b<sup>2</sup></div>
+        <div class="opt" data-q="6" data-opt="B">(a+b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></div>
+        <div class="opt" data-q="6" data-opt="C">(a+b)(a−b) = a<sup>2</sup> − b<sup>2</sup></div>
+        <div class="opt" data-q="6" data-opt="D">(a+b)<sup>3</sup> = a<sup>3</sup> + b<sup>3</sup></div>
+      </div>
+      <div class="hint-box" id="hint-6"><strong>Hint:</strong> (a+b)² = a² + 2ab + b².</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q7</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">Factorise: 6x<sup>2</sup> + 12x</div>
+      <div class="options">
+        <div class="opt" data-q="7" data-opt="A">6(x + 2)</div>
+        <div class="opt" data-q="7" data-opt="B">6x(x + 2)</div>
+        <div class="opt" data-q="7" data-opt="C">x(6x + 12)</div>
+        <div class="opt" data-q="7" data-opt="D">Both B and C</div>
+      </div>
+      <div class="hint-box" id="hint-7"><strong>Hint:</strong> GCF is 6x: 6x²+12x = 6x(x+2). x(6x+12) is the same factorisation written differently.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q8</span>
+        <span class="diff-pill easy">Easy</span>
+      </div>
+      <div class="q-text">The value of p(x) = x<sup>3</sup> − 2x<sup>2</sup> + x − 1 at x = 1 is:</div>
+      <div class="options">
+        <div class="opt" data-q="8" data-opt="A">−1</div>
+        <div class="opt" data-q="8" data-opt="B">0</div>
+        <div class="opt" data-q="8" data-opt="C">1</div>
+        <div class="opt" data-q="8" data-opt="D">2</div>
+      </div>
+      <div class="hint-box" id="hint-8"><strong>Hint:</strong> p(1) = 1 − 2 + 1 − 1 = −1.</div>
+    </div>
+
+    <div class="section-divider medium">
+      <span class="label">Medium</span>
+      <span class="rule"></span>
+      <span class="marks">2 marks each</span>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q9</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">Factorise: x<sup>2</sup> + 7x + 12</div>
+      <div class="options">
+        <div class="opt" data-q="9" data-opt="A">(x + 3)(x + 4)</div>
+        <div class="opt" data-q="9" data-opt="B">(x + 2)(x + 6)</div>
+        <div class="opt" data-q="9" data-opt="C">(x + 1)(x + 12)</div>
+        <div class="opt" data-q="9" data-opt="D">(x − 3)(x − 4)</div>
+      </div>
+      <div class="hint-box" id="hint-9"><strong>Hint:</strong> Find two numbers with product 12 and sum 7: 3 and 4.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q10</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">Find the value of k if (x − 2) is a factor of x<sup>3</sup> − 2x<sup>2</sup> + kx − 4.</div>
+      <div class="options">
+        <div class="opt" data-q="10" data-opt="A">k = 2</div>
+        <div class="opt" data-q="10" data-opt="B">k = 4</div>
+        <div class="opt" data-q="10" data-opt="C">k = −2</div>
+        <div class="opt" data-q="10" data-opt="D">k = 0</div>
+      </div>
+      <div class="hint-box" id="hint-10"><strong>Hint:</strong> Set p(2) = 0: 8 − 8 + 2k − 4 = 0 ⟹ k = 2.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q11</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">Factorise: 2x<sup>2</sup> + 7x + 3</div>
+      <div class="options">
+        <div class="opt" data-q="11" data-opt="A">(2x + 1)(x + 3)</div>
+        <div class="opt" data-q="11" data-opt="B">(2x + 3)(x + 1)</div>
+        <div class="opt" data-q="11" data-opt="C">(x + 7)(2x + 3)</div>
+        <div class="opt" data-q="11" data-opt="D">(2x − 1)(x − 3)</div>
+      </div>
+      <div class="hint-box" id="hint-11"><strong>Hint:</strong> Split 7x as 6x + x: 2x(x+3) + 1(x+3) = (2x+1)(x+3).</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q12</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">Using an identity, factorise: 4x<sup>2</sup> − 12xy + 9y<sup>2</sup></div>
+      <div class="options">
+        <div class="opt" data-q="12" data-opt="A">(4x − 9y)<sup>2</sup></div>
+        <div class="opt" data-q="12" data-opt="B">(2x − 3y)<sup>2</sup></div>
+        <div class="opt" data-q="12" data-opt="C">(2x + 3y)(2x − 3y)</div>
+        <div class="opt" data-q="12" data-opt="D">(4x − 3y)(x + 3y)</div>
+      </div>
+      <div class="hint-box" id="hint-12"><strong>Hint:</strong> (2x)² − 2(2x)(3y) + (3y)² = (2x − 3y)².</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q13</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">Factorise: x<sup>3</sup> − 8 (using the identity a<sup>3</sup> − b<sup>3</sup>)</div>
+      <div class="options">
+        <div class="opt" data-q="13" data-opt="A">(x − 2)(x<sup>2</sup> + 2x + 4)</div>
+        <div class="opt" data-q="13" data-opt="B">(x − 2)(x<sup>2</sup> − 2x + 4)</div>
+        <div class="opt" data-q="13" data-opt="C">(x − 2)<sup>3</sup></div>
+        <div class="opt" data-q="13" data-opt="D">(x + 2)(x<sup>2</sup> − 4)</div>
+      </div>
+      <div class="hint-box" id="hint-13"><strong>Hint:</strong> a³−b³ = (a−b)(a²+ab+b²), with a=x, b=2.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q14</span>
+        <span class="diff-pill medium">Medium</span>
+      </div>
+      <div class="q-text">If p(x) = x<sup>3</sup> + 3x<sup>2</sup> + 3x + 1, then p(−1) equals:</div>
+      <div class="options">
+        <div class="opt" data-q="14" data-opt="A">1</div>
+        <div class="opt" data-q="14" data-opt="B">0</div>
+        <div class="opt" data-q="14" data-opt="C">−1</div>
+        <div class="opt" data-q="14" data-opt="D">8</div>
+      </div>
+      <div class="hint-box" id="hint-14"><strong>Hint:</strong> Notice p(x) = (x+1)³, so p(−1) = 0.</div>
+    </div>
+
+    <div class="section-divider hard">
+      <span class="label">Hard</span>
+      <span class="rule"></span>
+      <span class="marks">3 marks each</span>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q15</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">Factorise completely: x<sup>3</sup> − 2x<sup>2</sup> − x + 2</div>
+      <div class="options">
+        <div class="opt" data-q="15" data-opt="A">(x − 1)(x + 1)(x − 2)</div>
+        <div class="opt" data-q="15" data-opt="B">(x − 1)(x − 1)(x + 2)</div>
+        <div class="opt" data-q="15" data-opt="C">(x + 1)(x + 1)(x − 2)</div>
+        <div class="opt" data-q="15" data-opt="D">(x − 2)(x<sup>2</sup> + x − 1)</div>
+      </div>
+      <div class="hint-box" id="hint-15"><strong>Hint:</strong> Check p(1), p(−1), p(2) — all give zero, so all three are factors.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q16</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">Show that (2x − 1) is a factor of 2x<sup>3</sup> − x<sup>2</sup> − 4x + 2. Then find all factors.</div>
+      <div class="options">
+        <div class="opt" data-q="16" data-opt="A">(2x − 1)(x − √2)(x + √2)</div>
+        <div class="opt" data-q="16" data-opt="B">(2x − 1)(x<sup>2</sup> − 2)</div>
+        <div class="opt" data-q="16" data-opt="C">Both A and B are correct</div>
+        <div class="opt" data-q="16" data-opt="D">(2x + 1)(x<sup>2</sup> − 2)</div>
+      </div>
+      <div class="hint-box" id="hint-16"><strong>Hint:</strong> p(½) = 0 confirms the factor. The quotient x²−2 factors further into (x−√2)(x+√2).</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q17</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">If a + b + c = 0, use the identity a<sup>3</sup>+b<sup>3</sup>+c<sup>3</sup> = 3abc to evaluate: 1<sup>3</sup> + (−3)<sup>3</sup> + 2<sup>3</sup></div>
+      <div class="options">
+        <div class="opt" data-q="17" data-opt="A">6</div>
+        <div class="opt" data-q="17" data-opt="B">18</div>
+        <div class="opt" data-q="17" data-opt="C">−18</div>
+        <div class="opt" data-q="17" data-opt="D">0</div>
+      </div>
+      <div class="hint-box" id="hint-17"><strong>Hint:</strong> a+b+c = 1+(−3)+2 = 0, so the sum = 3abc = 3×1×(−3)×2 = −18.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q18</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">Factorise: x<sup>3</sup> + 13x<sup>2</sup> + 32x + 20 (use Factor Theorem to find one root first)</div>
+      <div class="options">
+        <div class="opt" data-q="18" data-opt="A">(x + 1)(x + 2)(x + 10)</div>
+        <div class="opt" data-q="18" data-opt="B">(x + 1)(x<sup>2</sup> + 12x + 20)</div>
+        <div class="opt" data-q="18" data-opt="C">(x + 2)(x + 2)(x + 5)</div>
+        <div class="opt" data-q="18" data-opt="D">(x + 4)(x + 5)(x + 1)</div>
+      </div>
+      <div class="hint-box" id="hint-18"><strong>Hint:</strong> p(−1) = 0. Dividing gives x²+12x+20, which factors into (x+2)(x+10).</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q19</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">Expand using identity: (2x + y + z)<sup>2</sup> and verify the result for x = y = z = 1.</div>
+      <div class="options">
+        <div class="opt" data-q="19" data-opt="A">4x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + 4xy + 2yz + 4xz (value = 16)</div>
+        <div class="opt" data-q="19" data-opt="B">4x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + 2xy + 2yz + 2xz (value = 12)</div>
+        <div class="opt" data-q="19" data-opt="C">4x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + xy + yz + xz (value = 9)</div>
+        <div class="opt" data-q="19" data-opt="D">2x<sup>2</sup> + y<sup>2</sup> + z<sup>2</sup> + 4xy + 2yz + 4xz (value = 14)</div>
+      </div>
+      <div class="hint-box" id="hint-19"><strong>Hint:</strong> (a+b+c)² = a²+b²+c²+2ab+2bc+2ca, with a=2x, b=y, c=z. At x=y=z=1: 4+1+1+4+2+4=16.</div>
+    </div>
+
+    <div class="question">
+      <div class="q-num-row">
+        <span class="q-num">Q20</span>
+        <span class="diff-pill hard">Hard</span>
+      </div>
+      <div class="q-text">Without actual division, prove that x<sup>4</sup> + x<sup>3</sup> − 7x<sup>2</sup> − x + 6 is exactly divisible by (x−1)(x−2)(x+2)(x+3). What are all the zeros?</div>
+      <div class="options">
+        <div class="opt" data-q="20" data-opt="A">x = 1, 2, −2, −3</div>
+        <div class="opt" data-q="20" data-opt="B">x = 1, −1, 2, −3</div>
+        <div class="opt" data-q="20" data-opt="C">x = 1, 2, 3, −2</div>
+        <div class="opt" data-q="20" data-opt="D">x = −1, −2, 2, 3</div>
+      </div>
+      <div class="hint-box" id="hint-20"><strong>Hint:</strong> Verify p(1)=p(2)=p(−2)=p(−3)=0 by direct substitution.</div>
+    </div>
+
+  </main>
+
+  <div class="action-bar">
+    <button class="btn primary" id="submitBtn">Submit &amp; check score</button>
+    <button class="btn" id="keyBtn">Show / hide hints</button>
+    <button class="btn" id="resetBtn">Reset</button>
+  </div>
+
+  <div class="score-box" id="scoreBox">
+    <div class="score-num" id="scoreNum">—</div>
+    <div class="score-label" id="scoreLabel"></div>
+    <div class="score-breakdown" id="scoreBreakdown"></div>
+  </div>
+
+  <footer class="site-footer">
+    Polynomials (Ch. 2) &middot; CBSE / NCERT Class IX
+  </footer>
+
+</div>
+
+<script>
+window.TEST = {"title": "Factorisation of Polynomials", "chapter": "Polynomials (Ch. 2)", "marks": 38, "time": 45, "questions": [{"num": 1, "diff": "Easy", "marks": 1, "correct": "B"}, {"num": 2, "diff": "Easy", "marks": 1, "correct": "B"}, {"num": 3, "diff": "Easy", "marks": 1, "correct": "C"}, {"num": 4, "diff": "Easy", "marks": 1, "correct": "B"}, {"num": 5, "diff": "Easy", "marks": 1, "correct": "A"}, {"num": 6, "diff": "Easy", "marks": 1, "correct": "B"}, {"num": 7, "diff": "Easy", "marks": 1, "correct": "D"}, {"num": 8, "diff": "Easy", "marks": 1, "correct": "A"}, {"num": 9, "diff": "Medium", "marks": 2, "correct": "A"}, {"num": 10, "diff": "Medium", "marks": 2, "correct": "A"}, {"num": 11, "diff": "Medium", "marks": 2, "correct": "A"}, {"num": 12, "diff": "Medium", "marks": 2, "correct": "B"}, {"num": 13, "diff": "Medium", "marks": 2, "correct": "A"}, {"num": 14, "diff": "Medium", "marks": 2, "correct": "B"}, {"num": 15, "diff": "Hard", "marks": 3, "correct": "A"}, {"num": 16, "diff": "Hard", "marks": 3, "correct": "C"}, {"num": 17, "diff": "Hard", "marks": 3, "correct": "C"}, {"num": 18, "diff": "Hard", "marks": 3, "correct": "A"}, {"num": 19, "diff": "Hard", "marks": 3, "correct": "A"}, {"num": 20, "diff": "Hard", "marks": 3, "correct": "A"}]};
+</script>
+<script src="../assets/test-engine.js"></script>
+</body>
+</html>

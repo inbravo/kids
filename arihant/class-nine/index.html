@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baklee's Maths Practice — CBSE Class IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="margin-rule"></div>
+<div class="wrap">
+
+  <header class="site-header">
+    <p class="eyebrow">CBSE · NCERT Pattern · Class IX</p>
+    <h1>Baklee's Maths Practice</h1>
+    <p class="tagline">A growing notebook of chapter tests — click into any test, answer, and get instant scoring with hints.</p>
+  </header>
+
+  <!-- ================= CHAPTER: POLYNOMIALS ================= -->
+  <section class="chapter-section">
+    <div class="chapter-head">
+      <span class="chapter-tab">Ch. 2</span>
+      <h2>Polynomials</h2>
+    </div>
+    <p class="chapter-desc">Zeros &amp; degree, Factor &amp; Remainder Theorem, algebraic identities, and factorisation of cubics.</p>
+
+    <div class="test-grid">
+      <a class="test-card" href="tests/polynomials-set1.html">
+        <span class="set-label">Set 1</span>
+        <h3>Factorisation of Polynomials</h3>
+        <div class="meta-line">
+          <span>20 Qs</span><span>·</span><span>38 marks</span><span>·</span><span>45 min</span>
+        </div>
+        <span class="open-btn">Start test</span>
+      </a>
+
+      <a class="test-card" href="tests/polynomials-set2.html">
+        <span class="set-label">Set 2</span>
+        <h3>Polynomials — Mixed Review</h3>
+        <div class="meta-line">
+          <span>20 Qs</span><span>·</span><span>38 marks</span><span>·</span><span>45 min</span>
+        </div>
+        <span class="open-btn">Start test</span>
+      </a>
+
+      <a class="test-card" href="tests/algebraic-identities-set1.html">
+        <span class="set-label">Set 3</span>
+        <h3>Algebraic Identities — Squares &amp; Applications</h3>
+        <div class="meta-line">
+          <span>20 Qs</span><span>·</span><span>38 marks</span><span>·</span><span>45 min</span>
+        </div>
+        <span class="open-btn">Start test</span>
+      </a>
+
+      <a class="test-card" href="tests/algebraic-identities-set2.html">
+        <span class="set-label">Set 4</span>
+        <h3>Algebraic Identities — Cubes &amp; Mixed</h3>
+        <div class="meta-line">
+          <span>20 Qs</span><span>·</span><span>38 marks</span><span>·</span><span>45 min</span>
+        </div>
+        <span class="open-btn">Start test</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ================= CHAPTER: PLACEHOLDER FOR FUTURE ================= -->
+  <section class="chapter-section">
+    <div class="chapter-head">
+      <span class="chapter-tab">Ch. —</span>
+      <h2 style="color: var(--ink-soft);">More chapters</h2>
+    </div>
+    <p class="chapter-desc">Triangles, Linear Equations, Coordinate Geometry and more will appear here as they're added.</p>
+    <div class="test-grid">
+      <div class="coming-soon">Not added yet</div>
+    </div>
+  </section>
+
+  <!-- ================= SCORECARD ================= -->
+  <section class="chapter-section" id="scorecardSection">
+    <div class="chapter-head">
+      <span class="chapter-tab">🏅</span>
+      <h2>Best Scores</h2>
+    </div>
+    <p class="chapter-desc">Personal best on each completed test.</p>
+    <div class="scorecard-grid" id="scorecardGrid"></div>
+  </section>
+
+  <footer class="site-footer">
+    Built for one student, one chapter at a time. · CBSE / NCERT Class IX
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    const TESTS = [
+      { key: 'polynomials-set1', label: 'Polynomials · Set 1' },
+      { key: 'polynomials-set2', label: 'Polynomials · Set 2' },
+      { key: 'algebraic-identities-set1', label: 'Algebraic Identities · Set 3' },
+      { key: 'algebraic-identities-set2', label: 'Algebraic Identities · Set 4' }
+    ];
+    const grid = document.getElementById('scorecardGrid');
+    const section = document.getElementById('scorecardSection');
+    let any = false;
+    TESTS.forEach(function (t) {
+      const data = JSON.parse(localStorage.getItem('best_' + t.key) || 'null');
+      if (!data) return;
+      any = true;
+      const pct = data.pct;
+      const tier = pct >= 90 ? 'green' : pct >= 50 ? 'amber' : 'red';
+      const card = document.createElement('div');
+      card.className = 'scorecard-entry';
+      card.innerHTML =
+        '<span class="sc-label">' + t.label + '</span>' +
+        '<span class="sc-score score-' + tier + '">' + data.score + ' / ' + data.total + '</span>' +
+        '<span class="sc-pct">' + pct + '%</span>' +
+        '<span class="sc-date">' + data.date + '</span>';
+      grid.appendChild(card);
+    });
+    if (!any) {
+      const empty = document.createElement('div');
+      empty.className = 'coming-soon';
+      empty.textContent = 'No tests completed yet — scores will appear here after your first submission.';
+      grid.appendChild(empty);
+    }
+  })();
+</script>
+</body>
+</html>
