@@ -114,15 +114,36 @@ a { color: var(--ink); text-decoration: none; }
 }
 .back-link:hover { color: var(--ink); border-color: var(--ink); }
 
-/* ---------- Chapter sections (homepage) ---------- */
+/* ---------- Chapter sections — accordion (homepage) ---------- */
 
-.chapter-section { margin-bottom: 2.75rem; }
+.chapter-section {
+  border: 1px solid var(--paper-rule);
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
 
+/* The heading row doubles as the toggle button */
 .chapter-head {
+  width: 100%;
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  margin-bottom: 0.9rem;
+  padding: 0.75rem 1.1rem;
+  background: var(--paper);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+}
+.chapter-head:hover { background: #f0ece3; }
+
+.ch-head-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .chapter-tab {
@@ -139,15 +160,72 @@ a { color: var(--ink); text-decoration: none; }
 
 .chapter-head h2 {
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
+  color: var(--ink);
+}
+
+.ch-coming { color: var(--ink-soft) !important; }
+
+.ch-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-soft);
+  background: var(--paper-rule);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* Chevron arrow */
+.ch-chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  transition: transform 0.25s ease;
+}
+.ch-chevron::before {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.25s ease;
+}
+.chapter-section.open .ch-chevron::before {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+/* Collapsible body using grid-template-rows trick */
+.chapter-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s ease;
+}
+.chapter-section.open .chapter-body {
+  grid-template-rows: 1fr;
+}
+.chapter-body-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 1.1rem;
+}
+.chapter-section.open .chapter-body-inner {
+  padding: 0.2rem 1.1rem 1.1rem;
+  overflow: visible;
 }
 
 .chapter-desc {
   color: var(--ink-soft);
   font-size: 13.5px;
-  margin: 0 0 1rem;
+  margin: 0.6rem 0 1rem;
   max-width: 60ch;
 }
 
